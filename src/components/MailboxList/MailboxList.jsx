@@ -8,19 +8,23 @@ const MailboxList = ({ mailboxes }) => {
 
   return (
     <div>
-      <h2>All Mailboxes</h2>
-      <ul>
+      <h2>Mailbox List</h2>
+      <div className="mailbox-list">
         {mailboxes.map((mailbox) => (
-          <li key={mailbox._id}>
-            <Link to={`/mailboxes/${mailbox._id}`}>
-              Mailbox #{mailbox._id} - {mailbox.boxOwner}
-            </Link>
-          </li>
+          <Link
+            key={mailbox._id}
+            to={`/mailboxes/${mailbox._id}`}
+            className="mail-box"
+          >
+            #{mailbox._id}
+          </Link>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
 
 export default MailboxList;
+
+
 

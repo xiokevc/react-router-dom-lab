@@ -13,27 +13,36 @@ const MailboxForm = ({ addBox }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Owner Name:
-        <input
-          type="text"
-          value={boxOwner}
-          onChange={(e) => setBoxOwner(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Box Size:
-        <select value={boxSize} onChange={(e) => setBoxSize(e.target.value)}>
-          <option>Small</option>
-          <option>Medium</option>
-          <option>Large</option>
-        </select>
-      </label>
-      <button type="submit">Create Mailbox</button>
-    </form>
+    <div>
+      <h2>New Mailbox</h2>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Enter a Boxholder:
+          <input
+            type="text"
+            value={boxOwner}
+            onChange={(e) => setBoxOwner(e.target.value)}
+            placeholder="Boxholder name"
+            required
+          />
+        </label>
+        <label>
+          Select a Box Size:
+          <select
+            value={boxSize}
+            onChange={(e) => setBoxSize(e.target.value)}
+          >
+            <option>Small</option>
+            <option>Medium</option>
+            <option>Large</option>
+          </select>
+        </label>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   );
 };
 
 export default MailboxForm;
+
+

@@ -11,12 +11,17 @@ const MailboxDetails = ({ mailboxes }) => {
 
   return (
     <div>
-      <h2>Mailbox #{mailbox._id}</h2>
-      <p><strong>Owner:</strong> {mailbox.boxOwner}</p>
-      <p><strong>Size:</strong> {mailbox.boxSize}</p>
+      <h2>Mailbox {mailbox._id}</h2>
+      <h3>Details</h3>
+      <div className="details">
+        <p><strong>Boxholder:</strong> {mailbox.boxOwner}</p>
+        <p><strong>Box Size:</strong> {mailbox.boxSize}</p>
+      </div>
     </div>
   );
 };
 
 export default MailboxDetails;
+
+
 
