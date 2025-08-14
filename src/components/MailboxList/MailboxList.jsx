@@ -1,21 +1,26 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const MailboxDetails = ({ mailboxes }) => {
-  const { mailboxId } = useParams();
-  const mailbox = mailboxes.find(mb => mb._id === Number(mailboxId));
-
-  if (!mailbox) {
-    return <p>Mailbox Not Found!</p>;
+const MailboxList = ({ mailboxes }) => {
+  if (mailboxes.length === 0) {
+    return <p>No mailboxes yet. Add one!</p>;
   }
 
   return (
     <div>
-      <h2>Mailbox #{mailbox._id}</h2>
-      <p><strong>Owner:</strong> {mailbox.boxOwner}</p>
-      <p><strong>Size:</strong> {mailbox.boxSize}</p>
+      <h2>All Mailboxes</h2>
+      <ul>
+        {mailboxes.map((mailbox) => (
+          <li key={mailbox._id}>
+            <Link to={`/mailboxes/${mailbox._id}`}>
+              Mailbox #{mailbox._id} - {mailbox.boxOwner}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
-export default MailboxDetails;
+export default MailboxList;
+
